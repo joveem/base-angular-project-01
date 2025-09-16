@@ -17,6 +17,7 @@ import
 
 import { getAddress } from "@stellar/freighter-api";
 import { getNetworkDetails } from "@stellar/freighter-api";
+import { isConnected, requestAccess, signTransaction } from '@stellar/freighter-api';
 
 // import Server from '@stellar/stellar-sdk';
 
@@ -215,6 +216,40 @@ export class OracleService
         //     // const out = decodeLastPrice(sim.result.retval);
         // });
 
+        if (!(await this.ensureFreighterAvailable()))
+        {
+            throw new Error('Freighter wallet is not available or is locked.');
+        }
+
+        const accessResponse = await requestAccess();
+        if (!accessResponse || !('address' in accessResponse) || !accessResponse.address)
+        {
+            const message = (accessResponse as any)?.error?.message ?? 'Wallet access was rejected.';
+            throw new Error(message);
+        }
+        const publicKey = accessResponse.address;
+
+        // const challenge = await firstValueFrom(
+        //     this.http.get<Sep10ChallengeResponse>(`${environment.apiBaseUrl}/auth/sep10`, {
+        //         params: new HttpParams().set('clientPublicKey', publicKey).set('account', publicKey),
+        //     }),
+        // );
+
+        // const networkPassphrase = challenge.networkPassphrase || environment.stellar.networkPassphrase;
+        // const signatureResponse = await signTransaction(transaction, {
+        //     networkPassphrase,
+        //     address: publicKey,
+        // });
+
+        // transaction.addSignature()
+
+        await this.server.simulateTransaction(transaction).then((sim: rpc.Api.SimulateTransactionResponse) =>
+        {
+            console.log("##### sim:", sim);
+
+            transaction
+        });
+
         await this.server.sendTransaction(transaction).then((res: rpc.Api.SendTransactionResponse) =>
         {
             console.log("##### res:", res);
@@ -317,6 +352,26 @@ export class OracleService
         // //     rawTimestamp: out.timestamp!,
         // // };
     }
+
+
+    private async ensureFreighterAvailable(): Promise<boolean>
+    {
+        try
+        {
+            const response = await isConnected();
+            if (response?.error)
+            {
+                console.error('Failed to detect Freighter extension.', response.error);
+                return false;
+            }
+            return Boolean(response?.isConnected);
+        } catch (error)
+        {
+            console.error('Failed to detect Freighter extension.', error);
+            return false;
+        }
+    }
+
 
     // private buildAssetScVal(config: OracleAssetConfig): xdr.ScVal
     // {
