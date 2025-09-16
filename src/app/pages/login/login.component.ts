@@ -28,9 +28,13 @@ export class LoginComponent {
         this.errorMessage = null;
 
         try {
+            console.log('01-01');
             await firstValueFrom(this.authService.login());
+            console.log('01-02');
             await this.router.navigateByUrl('/');
+            console.log('01-03');
         } catch (error) {
+            console.error('Login failed', error);
             const message = error instanceof Error ? error.message : 'Wallet login failed. Please try again.';
             this.errorMessage = message;
         } finally {

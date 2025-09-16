@@ -12,7 +12,7 @@ export const environment: AppEnvironment = {
     },
     oracle: {
         reflector: {
-            contractIdXlmUsdc: 'CAVLP5DH2GJPZMVO7IJY4CVOD5MWEFTJFVPD2YY2FQXOQHRGHK4D6HLP',
+            contractIdXlmUsdc: 'CCSSOHTBL3LEWUCBBEB5NJFC2OKFRC74OWEIJIZLRJBGAAU4VMU5NV4W',
             contractIdXlmUsdt: undefined,
             method: 'lastprice',
             decimals: 14,

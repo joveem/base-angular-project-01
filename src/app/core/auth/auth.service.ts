@@ -108,8 +108,14 @@ export class AuthService implements OnDestroy {
             address: publicKey,
         });
 
+        // console.log('Signing error | 00-01-01 | challenge = ', challenge);
+        // console.log('Signing error | 00-01-02 | accessResponse = ', accessResponse);
+
         if (!signatureResponse || (signatureResponse as any).error) {
             const message = (signatureResponse as any)?.error?.message ?? 'Challenge transaction signing failed.';
+            console.error('Signing error | 01-01', (signatureResponse as any)?.error);
+            console.error('Signing error | 01-02', signatureResponse);
+            console.error('Signing error | 01-03', challenge.networkPassphrase);
             throw new Error(message);
         }
 

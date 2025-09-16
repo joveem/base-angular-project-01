@@ -15,6 +15,11 @@ export const environment: AppEnvironment = {
             contractIdXlmUsdc: 'CAVLP5DH2GJPZMVO7IJY4CVOD5MWEFTJFVPD2YY2FQXOQHRGHK4D6HLP',
             contractIdXlmUsdt: undefined,
             method: 'lastprice',
+            // method: 'get_price',
+            // method: 'get_last_price',
+            // method: 'read',
+
+
             decimals: 14,
             targetAsset: {
                 type: 'native',
