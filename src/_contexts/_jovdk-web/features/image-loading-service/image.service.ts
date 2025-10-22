@@ -4,7 +4,7 @@ import { Subject } from "rxjs";
 @Injectable({
     providedIn: 'root'
 })
-export class ImageService
+export class ImageLoadingService
 {
     private _imagesLoading = new Subject<number>();
     private images: Map<HTMLElement, boolean> = new Map();
@@ -14,7 +14,7 @@ export class ImageService
 
     imageLoading(img: HTMLElement)
     {
-        // console.log("ImageService | imageLoading > img = ", img);
+        // console.log("ImageLoadingService | imageLoading > img = ", img);
         if (!this.images.has(img) || this.images.get(img))
         {
             this.images.set(img, false);
