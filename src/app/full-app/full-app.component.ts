@@ -12,17 +12,17 @@ import 'flowbite';
 // from project
 import { AppEnvironmentHandler, environment } from '../../environments/environment';
 import { EnviromentData } from '../../environments/environment';
-import { AppVersionPanelComponent } from "../_jovdk-web/features/app-version-panel/app-version-panel.component";
-import { ThreeJsBaseSceneComponent } from './../_jovdk-web-threejs/features/base-scene/threejs-base-scene.component';
+import { AppVersionPanelComponent } from "../../_contexts/_jovdk-web/features/app-version-panel/app-version-panel.component";
+import { ThreeJsBaseSceneComponent } from './../../_contexts/_jovdk-web-threejs/features/base-scene/threejs-base-scene.component';
 import { NgFor, NgIf } from '@angular/common';
-import { NavBarComponent } from "../_app/features/home/nav-bar/nav-bar.component";
+import { NavBarComponent } from "../../_contexts/_app/features/home/nav-bar/nav-bar.component";
 
 
 import { Component, VERSION, ViewChildren, QueryList, AfterViewInit, OnDestroy, ContentChildren, inject, ViewChild } from '@angular/core';
-import { ImgLoadingDirective } from '../_app/features/custom-directives/img-loading.directive';
+import { ImgLoadingDirective } from '../../_contexts/_app/features/custom-directives/img-loading.directive';
 import { forkJoin, Subscription } from 'rxjs';
-import { ImageService } from './ImageService';
-import { LocalizationService } from '../_jovdk-web/features/localization-service/localization-service.service';
+import { ImageLoadingService } from '../../_contexts/_jovdk-web/features/image-loading-service/image.service';
+import { LocalizationService } from '../../_contexts/_jovdk-web/features/localization-service/localization-service.service';
 
 @Component({
     selector: 'full-app',
@@ -43,7 +43,7 @@ export class FullAppComponent
     // dependencies
     _environmentData: EnviromentData = environment;
     _localizationService: LocalizationService = inject(LocalizationService);
-    _imageService: ImageService = inject(ImageService);
+    _imageLoadingService: ImageLoadingService = inject(ImageLoadingService);
 
     // state
     _isLoadingContent = true;
@@ -55,7 +55,7 @@ export class FullAppComponent
 
     constructor()
     {
-        this._imageService.imagesLoading$.subscribe(
+        this._imageLoadingService.imagesLoading$.subscribe(
             (value) =>
             {
                 // console.log('>>>>>> images.length = ' + value);
