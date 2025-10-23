@@ -1,7 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject } from '@angular/core';
 import { ImgLoadingDirective } from '../../custom-directives/img-loading.directive';
 import { LocalizationLanguageOption, LocalizationService } from '@contexts/jovdk-web';
+import { initTooltips } from 'flowbite';
 
 @Component({
     selector: 'app-nav-bar',
@@ -14,7 +15,7 @@ import { LocalizationLanguageOption, LocalizationService } from '@contexts/jovdk
     templateUrl: './nav-bar.component.html',
     styleUrl: './nav-bar.component.css',
 })
-export class NavBarComponent {
+export class NavBarComponent implements AfterViewInit {
     private readonly localizationService: LocalizationService = inject(LocalizationService);
 
     readonly languageOptions: ReadonlyArray<LocalizationLanguageOption> =
@@ -40,5 +41,8 @@ export class NavBarComponent {
         this._isSelectingLanguage = false;
         this.localizationService.setLanguage(languageId);
     };
-}
 
+    ngAfterViewInit(): void {
+        initTooltips();
+    }
+}

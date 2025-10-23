@@ -8,13 +8,13 @@ import {
     provideLocalizationConfig,
 } from '@contexts/jovdk-web';
 import { provideThreeEnvironmentConfig } from '@contexts/jovdk-web-threejs';
-import { PROJECT_LOCALIZATION_CONFIG } from '@contexts/app/config/project-localization.config';
+import { DEFAULT_LOCALIZATION_CONFIG } from '@contexts/jovdk-web';
 import { AppEnvironmentHandler, environment } from '../environments/environment';
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
     providers: [
-        provideLocalizationConfig(PROJECT_LOCALIZATION_CONFIG),
+        provideLocalizationConfig(DEFAULT_LOCALIZATION_CONFIG),
         provideAppEnvironmentInfo({
             appVersion: environment.APP_VERSION,
             environmentName: environment.ENVIRONMENT_NAME,
