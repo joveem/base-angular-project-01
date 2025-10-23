@@ -1,23 +1,9 @@
-import { Injectable } from '@angular/core';
+﻿import { LocalizationConfig } from '@contexts/jovdk-web';
 
-@Injectable({
-    providedIn: 'root'
-})
-export class LocalizationService
-{
-    // state
-    _currentLanguageOption!: LanguageOption;
-    _allLanguageOptionsByIds: { [key: string]: LanguageOption } = {};
-    _currentTermsByKey: { [key: string]: string } = {};
-
-    // config
-    private _languagePreferenceIdKey = 'config-language-preference-id';
-
-    _allLanguageOptions: LanguageOption[] =
-        [
+const rawLanguageOptions = [
             {
                 Id: 'pt-br',
-                Name: 'Português',
+                Name: 'Portugu├¬s',
                 FlagIconName: 'brazil-flag-icon-01',
             },
             {
@@ -25,9 +11,9 @@ export class LocalizationService
                 Name: 'English (US)',
                 FlagIconName: 'usa-flag-icon-01',
             },
-        ];
+] as const;
 
-    _allTermsList: LocalizationTerm[] = [
+const rawTerms = [
         {
             TermKey: 'soon...',
             TermValueByLanguage:
@@ -55,14 +41,14 @@ export class LocalizationService
         {
             TermKey: 'home-add-to-phantom',
             TermValueByLanguage: {
-                'pt-br': 'Adicionar à Phantom',
+                'pt-br': 'Adicionar ├á Phantom',
                 'en-us': 'Add to Phantom',
             }
         },
         {
             TermKey: 'home-add-to-metamask',
             TermValueByLanguage: {
-                'pt-br': 'Adicionar à MetaMask',
+                'pt-br': 'Adicionar ├á MetaMask',
                 'en-us': 'Add to MetaMask',
             }
         },
@@ -99,28 +85,28 @@ export class LocalizationService
         {
             TermKey: 'home-website-launch',
             TermValueByLanguage: {
-                'pt-br': '- Lançamento do WebSite',
+                'pt-br': '- Lan├ºamento do WebSite',
                 'en-us': '- Website Launch',
             }
         },
         {
             TermKey: 'home-twitter-launch',
             TermValueByLanguage: {
-                'pt-br': '- Lançamento do Twitter',
+                'pt-br': '- Lan├ºamento do Twitter',
                 'en-us': '- Twitter Launch',
             }
         },
         {
             TermKey: 'home-token-launch',
             TermValueByLanguage: {
-                'pt-br': '- Lançamento do Token',
+                'pt-br': '- Lan├ºamento do Token',
                 'en-us': '- Token Launch',
             }
         },
         {
             TermKey: 'home-first-quarter-2025',
             TermValueByLanguage: {
-                'pt-br': '1º Trimestre 2025',
+                'pt-br': '1┬║ Trimestre 2025',
                 'en-us': '1st Quarter 2025',
             }
         },
@@ -141,7 +127,7 @@ export class LocalizationService
         {
             TermKey: 'home-second-quarter-2025',
             TermValueByLanguage: {
-                'pt-br': '2º Trimestre 2025',
+                'pt-br': '2┬║ Trimestre 2025',
                 'en-us': '2nd Quarter 2025',
             }
         },
@@ -155,28 +141,28 @@ export class LocalizationService
         {
             TermKey: 'home-blackjack-21-against-players-or-table',
             TermValueByLanguage: {
-                'pt-br': 'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que não seja a própria wallet',
+                'pt-br': 'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poder├úo jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que n├úo seja a pr├│pria wallet',
                 'en-us': 'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-01 deposited anywhere other than their own wallet',
             }
         },
         {
             TermKey: 'home-third-quarter-2025',
             TermValueByLanguage: {
-                'pt-br': '3º Trimestre 2025',
+                'pt-br': '3┬║ Trimestre 2025',
                 'en-us': '3rd Quarter 2025',
             }
         },
         {
             TermKey: 'home-roadmap-review',
             TermValueByLanguage: {
-                'pt-br': '- Revisão do Roadmap',
+                'pt-br': '- Revis├úo do Roadmap',
                 'en-us': '- Roadmap Review',
             }
         },
         {
             TermKey: 'home-roadmap-review-validation',
             TermValueByLanguage: {
-                'pt-br': 'Revisão para validar o conteúdo do Roadmap e se alguma coisa pode/precisa ser adiantada/adiada baseado no progresso atual e no estado do projeto',
+                'pt-br': 'Revis├úo para validar o conte├║do do Roadmap e se alguma coisa pode/precisa ser adiantada/adiada baseado no progresso atual e no estado do projeto',
                 'en-us': 'Review to validate the content of the Roadmap and if anything can/needs to be brought forward/postponed based on the current progress and project status',
             }
         },
@@ -190,14 +176,14 @@ export class LocalizationService
         {
             TermKey: 'home-poker-texas-holdem-against-players',
             TermValueByLanguage: {
-                'pt-br': 'Poker (Texas Hold\'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que não seja a própria wallet',
+                'pt-br': 'Poker (Texas Hold\'em) contra outros jogadores. Os jogadores poder├úo jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que n├úo seja a pr├│pria wallet',
                 'en-us': 'Poker (Texas Hold\'em) against other players. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-01 deposited anywhere other than their own wallet',
             }
         },
         {
             TermKey: 'home-fourth-quarter-2025',
             TermValueByLanguage: {
-                'pt-br': '4º Trimestre 2025',
+                'pt-br': '4┬║ Trimestre 2025',
                 'en-us': '4th Quarter 2025',
             }
         },
@@ -211,14 +197,14 @@ export class LocalizationService
         {
             TermKey: 'home-game-with-own-token-nfts-staking',
             TermValueByLanguage: {
-                'pt-br': 'Jogo com token próprio, 2 coleções de NFT\'s e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. Primeira rodada de venda do token vai ser feita apenas em $BASE-ANGULAR-PROJECT-01',
+                'pt-br': 'Jogo com token pr├│prio, 2 cole├º├╡es de NFT\'s e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. Primeira rodada de venda do token vai ser feita apenas em $BASE-ANGULAR-PROJECT-01',
                 'en-us': 'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known old game. The first round of the token sale will be made only in $BASE-ANGULAR-PROJECT-01'
             }
         },
         {
             TermKey: 'home-roadmap-content-review',
             TermValueByLanguage: {
-                'pt-br': 'Revisão do conteúdo do Roadmap',
+                'pt-br': 'Revis├úo do conte├║do do Roadmap',
                 'en-us': 'Roadmap Content Review',
             }
         },
@@ -235,7 +221,7 @@ export class LocalizationService
         {
             TermKey: 'home-pichanha-coin-history',
             TermValueByLanguage: {
-                'pt-br': 'A história da Pichanha Coin ($BASE-ANGULAR-PROJECT-01)',
+                'pt-br': 'A hist├│ria da Pichanha Coin ($BASE-ANGULAR-PROJECT-01)',
                 'en-us': 'The history of Pichanha Coin ($BASE-ANGULAR-PROJECT-01)',
             }
         },
@@ -249,7 +235,7 @@ export class LocalizationService
         {
             TermKey: 'home-brazil-2022-election-history',
             TermValueByLanguage: {
-                'pt-br': 'No Brasil, as eleições para presidência de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, "Lula", um dos ex-presidentes, disse que se ele fosse eleito, as pessoas pobres iam poder comer BASE-ANGULAR-PROJECT-01 (um corte nobre de boi)',
+                'pt-br': 'No Brasil, as elei├º├╡es para presid├¬ncia de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o per├¡odo de candidatura, "Lula", um dos ex-presidentes, disse que se ele fosse eleito, as pessoas pobres iam poder comer BASE-ANGULAR-PROJECT-01 (um corte nobre de boi)',
                 'en-us': 'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, "Lula", one of the former presidents, said that if he were elected, poor people would be able to eat BASE-ANGULAR-PROJECT-01 (a noble cut of beef)',
             }
         },
@@ -263,7 +249,7 @@ export class LocalizationService
         {
             TermKey: 'home-BASE-ANGULAR-PROJECT-01-de-lula-meme',
             TermValueByLanguage: {
-                'pt-br': 'Mesmo hoje, muito tempo depois das eleições, a polarização política continua. E desde então, a "BASE-ANGULAR-PROJECT-01 de Lula" foi e continua sendo um meme muito forte e reconhecido no Brasil, principalmente em discussões de política e usada em discursos de opositores',
+                'pt-br': 'Mesmo hoje, muito tempo depois das elei├º├╡es, a polariza├º├úo pol├¡tica continua. E desde ent├úo, a "BASE-ANGULAR-PROJECT-01 de Lula" foi e continua sendo um meme muito forte e reconhecido no Brasil, principalmente em discuss├╡es de pol├¡tica e usada em discursos de opositores',
                 'en-us': 'Even today, long after the elections, political polarization continues. And since then, "Lula\'s BASE-ANGULAR-PROJECT-01" has been and continues to be a very strong and recognized meme in Brazil, especially in political discussions and used in speeches by opponents',
             }
         },
@@ -277,21 +263,21 @@ export class LocalizationService
         {
             TermKey: 'home-BASE-ANGULAR-PROJECT-01-symbol-meaning',
             TermValueByLanguage: {
-                'pt-br': 'O símbolo da BASE-ANGULAR-PROJECT-01 é $BASE-ANGULAR-PROJECT-01, em português, "BASE-ANGULAR-PROJECT-01" é uma gíria para BASE-ANGULAR-PROJECT-01',
+                'pt-br': 'O s├¡mbolo da BASE-ANGULAR-PROJECT-01 ├⌐ $BASE-ANGULAR-PROJECT-01, em portugu├¬s, "BASE-ANGULAR-PROJECT-01" ├⌐ uma g├¡ria para BASE-ANGULAR-PROJECT-01',
                 'en-us': 'The symbol of BASE-ANGULAR-PROJECT-01 is $BASE-ANGULAR-PROJECT-01, in Portuguese, "BASE-ANGULAR-PROJECT-01" is a slang for BASE-ANGULAR-PROJECT-01',
             }
         },
         {
             TermKey: 'home-avoid-hands-on-your-BASE-ANGULAR-PROJECT-01s',
             TermValueByLanguage: {
-                'pt-br': 'Evite que alguém passe a mão nas suas $BASE-ANGULAR-PROJECT-01s',
+                'pt-br': 'Evite que algu├⌐m passe a m├úo nas suas $BASE-ANGULAR-PROJECT-01s',
                 'en-us': 'Avoid someone getting their hands on your $BASE-ANGULAR-PROJECT-01s'
             }
         },
         {
             TermKey: 'home-caution-with-scams-profiles-contracts-fakes',
             TermValueByLanguage: {
-                'pt-br': 'Cuidado com scams, <b>perfís</b>, <b>contratos</b> e <b>falsos</b>, sempre busque por links oficiais! Não confie em nenhum <b>site</b>/<b>pessoa</b> que peça sua <b>"seed phrase"</b>, <b>"private key"</b> nem assinar algum contrato que não esteja <b>listado em canais oficiais</b>',
+                'pt-br': 'Cuidado com scams, <b>perf├¡s</b>, <b>contratos</b> e <b>falsos</b>, sempre busque por links oficiais! N├úo confie em nenhum <b>site</b>/<b>pessoa</b> que pe├ºa sua <b>"seed phrase"</b>, <b>"private key"</b> nem assinar algum contrato que n├úo esteja <b>listado em canais oficiais</b>',
                 'en-us': 'Be careful with scams, <b>profiles</b>, <b>contracts</b> and <b>fakes</b>, always look for official links! Do not trust any <b>site</b>/<b>person</b> that asks for your <b>"seed phrase"</b>, <b>"private key"</b> or to sign a contract that is not <b>listed in official channels</b>',
             }
         },
@@ -317,7 +303,7 @@ export class LocalizationService
         {
             TermKey: 'home-security-title',
             TermValueByLanguage: {
-                'pt-br': 'Segurança',
+                'pt-br': 'Seguran├ºa',
                 'en-us': 'Security'
             }
         },
@@ -348,7 +334,7 @@ export class LocalizationService
         {
             TermKey: 'home-team-is-one-dev',
             TermValueByLanguage: {
-                'pt-br': 'Por enquanto, "o time" é apenas 1 dev',
+                'pt-br': 'Por enquanto, "o time" ├⌐ apenas 1 dev',
                 'en-us': 'For now, "the team" is just 1 dev',
             }
         },
@@ -369,14 +355,14 @@ export class LocalizationService
         {
             TermKey: 'home-tech-enthusiast-programmer-crypto-gaming-loss',
             TermValueByLanguage: {
-                'pt-br': 'Sou um entusiasta de tecnologia, programador e já perdi alguns milhares de Reais em 2022 jogando jogos crypto de qualidade questionável e bastante da falta de transparência',
+                'pt-br': 'Sou um entusiasta de tecnologia, programador e j├í perdi alguns milhares de Reais em 2022 jogando jogos crypto de qualidade question├ível e bastante da falta de transpar├¬ncia',
                 'en-us': 'I am a technology enthusiast, programmer, and I lost several thousand Reais in 2022 playing crypto games of questionable quality and lacking transparency',
             }
         },
         {
             TermKey: 'home-my-goal-transparency',
             TermValueByLanguage: {
-                'pt-br': 'Meu objetivo é tentar fazer diferente, sempre focando na maior transparência possível e no bom senso',
+                'pt-br': 'Meu objetivo ├⌐ tentar fazer diferente, sempre focando na maior transpar├¬ncia poss├¡vel e no bom senso',
                 'en-us': 'My goal is to try to do things differently, always focusing on the highest possible transparency and common sense'
             }
         },
@@ -390,129 +376,45 @@ export class LocalizationService
         {
             TermKey: 'home-prefer-not-anonymous-but-didnt-calculate-implications',
             TermValueByLanguage: {
-                'pt-br': 'Preferiria não estar anônimo parecendo um scamzão, mas eu não calculei as implicações (boas e ruins) de me identificar, então vou me manter assim por ora',
-                'en-us': 'I would prefer not to be anonymous, looking like a scam, but I didn’t calculate the implications (good and bad) of identifying myself, so I will remain like this for now',
+                'pt-br': 'Preferiria n├úo estar an├┤nimo parecendo um scamz├úo, mas eu n├úo calculei as implica├º├╡es (boas e ruins) de me identificar, ent├úo vou me manter assim por ora',
+                'en-us': 'I would prefer not to be anonymous, looking like a scam, but I didnΓÇÖt calculate the implications (good and bad) of identifying myself, so I will remain like this for now',
             }
         },
         {
             TermKey: 'home-medium-long-term',
             TermValueByLanguage: {
-                'pt-br': 'Médio/Longo prazo',
+                'pt-br': 'M├⌐dio/Longo prazo',
                 'en-us': 'Medium/Long term',
             }
         },
         {
             TermKey: 'home-no-pump-and-dump-no-rug-pull-long-term-goals',
             TermValueByLanguage: {
-                'pt-br': 'Não pretendo fazer pump and dump nem ruggar, nem tenho dinheiro pra isso. Independente desse projeto dar certo ou não, minha meta é o médio/longo prazo e poder financiar os meus próximos projetos maiores',
+                'pt-br': 'N├úo pretendo fazer pump and dump nem ruggar, nem tenho dinheiro pra isso. Independente desse projeto dar certo ou n├úo, minha meta ├⌐ o m├⌐dio/longo prazo e poder financiar os meus pr├│ximos projetos maiores',
                 'en-us': 'I do not intend to pump and dump or rug pull, nor do I have money for that. Regardless of whether this project succeeds or not, my goal is the medium/long term and to be able to fund my next bigger projects',
             }
         },
         {
             TermKey: 'home-hope-not-to-become-what-im-trying-to-destroy',
             TermValueByLanguage: {
-                'pt-br': '~Espero não me tornar o que eu estou tentando destruir',
+                'pt-br': '~Espero n├úo me tornar o que eu estou tentando destruir',
                 'en-us': '~I hope not to become what I am trying to destroy',
             }
         },
 
 
-    ]
+] as const;
 
-    constructor()
-    {
-        this.SetInitialState();
-    }
-
-    SetInitialState = () =>
-    {
-        this._allLanguageOptionsByIds = {};
-        this._allLanguageOptions.map(
-            (languageOption) =>
-            {
-                if (!(languageOption.Id in this._allLanguageOptionsByIds))
-                    this._allLanguageOptionsByIds[languageOption.Id] = languageOption;
-                else
-                    console.log('Duplicated languageOption.Id! languageOption = ', languageOption);
-            })
-
-        this.RefreshTermsValues();
-    }
-
-    RefreshTermsValues = () =>
-    {
-        this._currentTermsByKey = {};
-        this._currentLanguageOption = this.GetCurrentLanguageOptionCache();
-
-        let languageId = this._currentLanguageOption.Id;
-
-        this._allTermsList.map(
-            (term) =>
-            {
-                let termKey = term.TermKey;
-                let currentLanguageTermValue = termKey;
-
-                if (!(termKey in this._currentTermsByKey))
-                {
-                    if (languageId in term.TermValueByLanguage)
-                        currentLanguageTermValue = term.TermValueByLanguage[languageId];
-                    else
-                    {
-                        console.error(
-                            'languageId not in term.TermValueByLanguage!' + '\n' +
-                            'languageId = ', languageId, '\n',
-                            'term = ', term, '\n',
-                            '')
-
-                        let allValues = Object.values(term.TermValueByLanguage);
-
-                        if (allValues.length > 0)
-                            currentLanguageTermValue = allValues[0];
-                    }
-
-                    this._currentTermsByKey[termKey] = currentLanguageTermValue;
-                }
-                else
-                    console.error('Duplicated termKey! termKey = ', termKey);
-            });
-    }
-
-    GetCurrentLanguageOptionCache = () =>
-    {
-        let value!: LanguageOption;
-
-        let languagePreferenceId = localStorage.getItem(this._languagePreferenceIdKey);
-
-        // console.log('languagePreferenceId = ', languagePreferenceId);
-
-        if (!languagePreferenceId)
-            languagePreferenceId = this._allLanguageOptions[0].Id;
-
-        value = this._allLanguageOptionsByIds[languagePreferenceId];
-
-        if (!value)
-            value = this._allLanguageOptions[0];
-
-        return value;
-    }
-
-    SetCurrentLanguage = (languageId: string) =>
-    {
-        localStorage.setItem(this._languagePreferenceIdKey, languageId);
-
-        this.RefreshTermsValues();
-    }
-}
-
-export interface LanguageOption
-{
-    Id: string,
-    Name: string,
-    FlagIconName: string,
-}
-
-export interface LocalizationTerm
-{
-    TermKey: string,
-    TermValueByLanguage: { [key: string]: string },
-}
+export const PROJECT_LOCALIZATION_CONFIG: LocalizationConfig = {
+    storageKey: 'config-language-preference-id',
+    defaultLanguageId: 'pt-br',
+    languages: rawLanguageOptions.map(({ Id, Name, FlagIconName }) => ({
+        id: Id,
+        name: Name,
+        flagIconName: FlagIconName,
+    })),
+    terms: rawTerms.map(({ TermKey, TermValueByLanguage }) => ({
+        key: TermKey,
+        values: TermValueByLanguage,
+    })),
+};

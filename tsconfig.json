@@ -18,10 +18,28 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
+    "baseUrl": "./",
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@contexts/jovdk-web/*": [
+        "./src/_contexts/_jovdk-web/*"
+      ],
+      "@contexts/jovdk-web": [
+        "./src/_contexts/_jovdk-web/index.ts"
+      ],
+      "@contexts/jovdk-web-threejs/*": [
+        "./src/_contexts/_jovdk-web-threejs/*"
+      ],
+      "@contexts/jovdk-web-threejs": [
+        "./src/_contexts/_jovdk-web-threejs/index.ts"
+      ],
+      "@contexts/app/*": [
+        "./src/_contexts/_app/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

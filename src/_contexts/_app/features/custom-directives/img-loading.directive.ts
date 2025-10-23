@@ -13,7 +13,7 @@ import
     Renderer2,
 } from '@angular/core';
 
-import { ImageService } from '../../../full-app/ImageService';
+import { ImageLoadingService } from '@contexts/jovdk-web';
 
 
 @Directive({
@@ -22,7 +22,7 @@ import { ImageService } from '../../../full-app/ImageService';
 })
 export class ImgLoadingDirective implements OnInit, AfterContentInit
 {
-    _imageService: ImageService = inject(ImageService);
+    _imageLoadingService: ImageLoadingService = inject(ImageLoadingService);
 
 
     // @Input()
@@ -44,7 +44,7 @@ export class ImgLoadingDirective implements OnInit, AfterContentInit
     )
     {
         // console.log('ImageLoaderDirective | constructor > el = ', el);
-        this._imageService.imageLoading(el.nativeElement);
+        this._imageLoadingService.imageLoading(el.nativeElement);
     }
 
     ngOnInit(): void
@@ -81,7 +81,7 @@ export class ImgLoadingDirective implements OnInit, AfterContentInit
         }
         this.alreadyTriedLoading = true;
 
-        this._imageService.imageLoadedOrError(this.el.nativeElement);
+        this._imageLoadingService.imageLoadedOrError(this.el.nativeElement);
     }
 
     @HostListener('error')
@@ -95,7 +95,7 @@ export class ImgLoadingDirective implements OnInit, AfterContentInit
         }
         this.alreadyTriedError = true;
 
-        this._imageService.imageLoadedOrError(this.el.nativeElement);
+        this._imageLoadingService.imageLoadedOrError(this.el.nativeElement);
     }
 
     private shouldDisplayLoader(): boolean

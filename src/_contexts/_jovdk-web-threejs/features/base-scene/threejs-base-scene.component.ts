@@ -1,5 +1,5 @@
 // base libs
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import * as THREE from 'three';
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
@@ -10,12 +10,9 @@ import { MathUtils, clamp, lerp } from 'three/src/math/MathUtils.js';
 // third
 // ...
 
-// from project
-import { AppEnvironmentHandler, environment } from '../../../../environments/environment';
-import { EnviromentData } from '../../../../environments/environment';
-import { AppVersionPanelComponent } from "../../../_jovdk-web/features/app-version-panel/app-version-panel.component";
-import CdnService from '../../../_jovdk-web/features/cdn-service/cdn-service';
-// import CdnService from '../../../_jovdk-web/features/cdn-service/cdn-service';
+// context
+import { CdnService } from '@contexts/jovdk-web';
+import { THREE_ENVIRONMENT_CONFIG, ThreeEnvironmentConfig } from '@contexts/jovdk-web-threejs';
 
 @Component({
     selector: 'threejs-base-scene',
@@ -29,8 +26,9 @@ export class ThreeJsBaseSceneComponent
 {
     // dependencies
     _clock: THREE.Clock = new THREE.Clock();
-    _environmentData: EnviromentData = environment;
-    _cdnService: CdnService = new CdnService(this._environmentData.CDN_URL);
+    private readonly environmentConfig: ThreeEnvironmentConfig =
+        inject(THREE_ENVIRONMENT_CONFIG, { optional: true }) ?? {};
+    _cdnService: CdnService = new CdnService(this.environmentConfig.cdnUrl ?? '');
     _glbLoader: GLTFLoader = new GLTFLoader();
     _textureLoader = new THREE.TextureLoader();
 
@@ -106,36 +104,34 @@ export class ThreeJsBaseSceneComponent
         // this._baseScene.MainScene.add(reverseLight1);
         // this._baseScene.MainScene.add(reverseLight2);
 
-        AppEnvironmentHandler.DoIfLocal(
-            () =>
-            {
-                // light
-                const mainUpLightHelper = new THREE.DirectionalLightHelper(mainUpLight, 5);
-                this.MainScene.add(mainUpLightHelper);
-                const secondaryUpLightHelper = new THREE.DirectionalLightHelper(secondaryUpLight, 5);
-                this.MainScene.add(secondaryUpLightHelper);
-                const reverseLight1Helper = new THREE.DirectionalLightHelper(reverseLight1, 5);
-                this.MainScene.add(reverseLight1Helper);
-                const reverseLight2Helper = new THREE.DirectionalLightHelper(reverseLight2, 5);
-                this.MainScene.add(reverseLight2Helper);
-                // // grid
-                // const gridHelper = new THREE.GridHelper(10, 10);
-                // this._baseScene.MainScene.add(gridHelper);
-                // // orbit controll
-                // this.OrbitControl = new OrbitControls(this.MainCamera, this.MainRenderer.domElement);
-            })
+        if (this.environmentConfig.isLocal)
+        {
+            const mainUpLightHelper = new THREE.DirectionalLightHelper(mainUpLight, 5);
+            this.MainScene.add(mainUpLightHelper);
+            const secondaryUpLightHelper = new THREE.DirectionalLightHelper(secondaryUpLight, 5);
+            this.MainScene.add(secondaryUpLightHelper);
+            const reverseLight1Helper = new THREE.DirectionalLightHelper(reverseLight1, 5);
+            this.MainScene.add(reverseLight1Helper);
+            const reverseLight2Helper = new THREE.DirectionalLightHelper(reverseLight2, 5);
+            this.MainScene.add(reverseLight2Helper);
+            // // grid
+            // const gridHelper = new THREE.GridHelper(10, 10);
+            // this._baseScene.MainScene.add(gridHelper);
+            // // orbit controll
+            // this.OrbitControl = new OrbitControls(this.MainCamera, this.MainRenderer.domElement);
+        }
     }
 
     _coinModel!: THREE.Group<THREE.Object3DEventMap>;
 
     LoadCoin = async () =>
     {
-        // let assetPath = this._cdnService.GetContentUrl(assetDefinition.CdnPath);
-        let assetPath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01.glb');
+        // let assetPath = this._cdnService.getContentUrl(assetDefinition.CdnPath);
+        let assetPath = this._cdnService.getContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01.glb');
         console.log('assetPath = ', assetPath);
 
-        let albedoTexturePath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01-texture-01-albedo-22.jpg');
-        let normalTexturePath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01-texture-01-normal-21.png');
+        let albedoTexturePath = this._cdnService.getContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01-texture-01-albedo-22.jpg');
+        let normalTexturePath = this._cdnService.getContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01-texture-01-normal-21.png');
 
         let albedoTexture =
             await new Promise<THREE.Texture>(
@@ -371,7 +367,6 @@ export class ThreeJsBaseSceneComponent
         // camera
         // this.MainCamera.lookAt(new THREE.Vector3(0, 0, 0));
 
-        // let mapName = environment.APP_NAME_TERM_01;
         // let mapName = 'Fazendinha';
 
         // mapName = 'Zoo Mania';
@@ -445,22 +440,21 @@ export class ThreeJsBaseSceneComponent
 
 
         // ### debugging helpers ###
-        AppEnvironmentHandler.DoIfLocal(
-            () =>
-            {
-                // // light
-                // const directionalLighthelper = new THREE.DirectionalLightHelper(light, 5);
-                // this.MainScene.add(directionalLighthelper);
-                // grid
-                const gridHelper = new THREE.GridHelper(20, 20);
-                this.MainScene.add(gridHelper);
-                const axesHelper = new THREE.AxesHelper(40);
-                this.MainScene.add(axesHelper);
+        if (this.environmentConfig.isLocal)
+        {
+            // // light
+            // const directionalLighthelper = new THREE.DirectionalLightHelper(light, 5);
+            // this.MainScene.add(directionalLighthelper);
+            // grid
+            const gridHelper = new THREE.GridHelper(20, 20);
+            this.MainScene.add(gridHelper);
+            const axesHelper = new THREE.AxesHelper(40);
+            this.MainScene.add(axesHelper);
 
-                // camera
-                // const arrowHelper = new THREE.ArrowHelper(this._cameraRotationPivot.rotation, new THREE.Vector3(0, 10, 0));
-                // this.MainScene.add(arrowHelper);
-            });
+            // camera
+            // const arrowHelper = new THREE.ArrowHelper(this._cameraRotationPivot.rotation, new THREE.Vector3(0, 10, 0));
+            // this.MainScene.add(arrowHelper);
+        }
 
         // orbit controll
         this.OrbitControl = new OrbitControls(this.MainCamera, this.MainRenderer!.domElement);
@@ -747,7 +741,7 @@ export class ThreeJsBaseSceneComponent
 
     LoadSfx = () =>
     {
-        let musicThemeUrl = environment.CDN_URL + '/public/_app/features/home/coin-sfx-01.mp3';
+        const musicThemeUrl = this._cdnService.getContentUrl('public/_app/features/home/coin-sfx-01.mp3');
         const audioLoader = new THREE.AudioLoader();
         this._audioListener = new THREE.AudioListener();
 

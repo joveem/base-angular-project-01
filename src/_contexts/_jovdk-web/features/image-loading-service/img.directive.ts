@@ -1,7 +1,7 @@
 // import { Directive, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
 
 // import { Directive, ElementRef, HostListener } from "@angular/core";
-import { ImageService } from "./ImageService";
+import { ImageLoadingService } from "./image.service";
 
 // @Directive({
 //     selector: 'img',
@@ -59,25 +59,25 @@ import { ImageService } from "./ImageService";
 // {
 //     constructor(
 //         private el: ElementRef,
-//         private imageService: ImageService)
+//         private imageLoadingService: ImageLoadingService)
 //     {
 //         console.log('#> MyImgDirective | constructor');
 //         // console.log('#> MyImgDirective | constructor' + el.nativeElement);
-//         imageService.imageLoading(el.nativeElement);
+//         imageLoadingService.imageLoading(el.nativeElement);
 //     }
 
 //     @HostListener('load')
 //     onLoad()
 //     {
 //         console.log('#> load');
-//         this.imageService.imageLoadedOrError(this.el.nativeElement);
+//         this.imageLoadingService.imageLoadedOrError(this.el.nativeElement);
 //     }
 
 //     @HostListener('error')
 //     onError()
 //     {
 //         console.log('#> error');
-//         this.imageService.imageLoadedOrError(this.el.nativeElement);
+//         this.imageLoadingService.imageLoadedOrError(this.el.nativeElement);
 //     }
 // }
 

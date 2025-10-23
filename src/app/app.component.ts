@@ -1,10 +1,9 @@
 import { Component, inject, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FullAppComponent } from "./full-app/full-app.component";
-import { ImageService } from './full-app/ImageService';
+import { ImageLoadingService } from '@contexts/jovdk-web';
 import { NgIf } from '@angular/common';
-import { ImgLoadingDirective } from './_app/features/custom-directives/img-loading.directive';
-import { ThreeJsBaseSceneComponent } from './_jovdk-web-threejs/features/base-scene/threejs-base-scene.component';
+import { ImgLoadingDirective } from '@contexts/app/features/custom-directives/img-loading.directive';
 
 @Component({
     selector: 'app-root',
@@ -21,7 +20,7 @@ import { ThreeJsBaseSceneComponent } from './_jovdk-web-threejs/features/base-sc
 export class AppComponent
 {
     // dependencies
-    _imageService: ImageService = inject(ImageService);
+    _imageLoadingService: ImageLoadingService = inject(ImageLoadingService);
 
     _isLoadingContent = true;
 
@@ -30,8 +29,8 @@ export class AppComponent
 
     constructor()
     {
-        this._imageService.imagesLoading$.subscribe(
-            (value) =>
+        this._imageLoadingService.imagesLoading$.subscribe(
+            (value: number) =>
             {
                 // console.log('>>>>>> images.length = ' + value);
 

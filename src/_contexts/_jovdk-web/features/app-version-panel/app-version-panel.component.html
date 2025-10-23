@@ -10,12 +10,12 @@
     overflow-hidden
     ">
 
-    <span class="text-red-400 opacity-60 text-shadow" *ngIf="!_isProd">
-        {{ _environmentData.ENVIRONMENT_NAME }}
+    <span class="text-red-400 opacity-60 text-shadow" *ngIf="!isProduction">
+        {{ environmentName }}
     </span>
 
     <span class="text-white opacity-35 text-shadow">
-        v{{ _environmentData.APP_VERSION }}
+        v{{ appVersion }}
     </span>
 
 </div>
