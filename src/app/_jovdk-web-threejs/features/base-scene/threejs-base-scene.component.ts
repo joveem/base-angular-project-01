@@ -131,11 +131,11 @@ export class ThreeJsBaseSceneComponent
     LoadCoin = async () =>
     {
         // let assetPath = this._cdnService.GetContentUrl(assetDefinition.CdnPath);
-        let assetPath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01.glb');
+        let assetPath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-ID.glb');
         console.log('assetPath = ', assetPath);
 
-        let albedoTexturePath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01-texture-01-albedo-22.jpg');
-        let normalTexturePath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-01-texture-01-normal-21.png');
+        let albedoTexturePath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-ID-texture-01-albedo-22.jpg');
+        let normalTexturePath = this._cdnService.GetContentUrl('public/_app/features/home/BASE-ANGULAR-PROJECT-ID-texture-01-normal-21.png');
 
         let albedoTexture =
             await new Promise<THREE.Texture>(

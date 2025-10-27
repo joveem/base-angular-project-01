@@ -1,4 +1,4 @@
-# BaseAngularProjects01
+# BASE-ANGULAR-PROJECT-PUBLIC-NAME
 
 | ![](_docs/repo-readme/screenshot-01.jpg) | 
 |:--:| 
@@ -46,9 +46,9 @@ To work locally you need [Angular CLI](https://github.com/angular/angular-cli) (
 
 ```sh
 # Clone the repository:
-git clone https://github.com/joveem/base-angular-project-01
+git clone https://github.com/joveem/BASE-ANGULAR-PROJECT-ID
 # Directory changing
-cd base-angular-project-01
+cd BASE-ANGULAR-PROJECT-ID
 # Install dependencies:
 npm install
 ```

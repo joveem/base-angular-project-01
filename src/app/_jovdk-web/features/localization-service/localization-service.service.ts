@@ -83,10 +83,10 @@ export class LocalizationService
             }
         },
         {
-            TermKey: 'home-where-and-when-will-BASE-ANGULAR-PROJECT-01-pass',
+            TermKey: 'home-where-and-when-will-BASE-ANGULAR-PROJECT-ID-pass',
             TermValueByLanguage: {
-                'pt-br': 'Aonde a $BASE-ANGULAR-PROJECT-01 vai passar e quando',
-                'en-us': 'Where and when will $BASE-ANGULAR-PROJECT-01 pass',
+                'pt-br': 'Aonde a $BASE-ANGULAR-PROJECT-PUBLIC-NAME vai passar e quando',
+                'en-us': 'Where and when will $BASE-ANGULAR-PROJECT-PUBLIC-NAME pass',
             }
         },
         {
@@ -155,8 +155,8 @@ export class LocalizationService
         {
             TermKey: 'home-blackjack-21-against-players-or-table',
             TermValueByLanguage: {
-                'pt-br': 'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que não seja a própria wallet',
-                'en-us': 'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-01 deposited anywhere other than their own wallet',
+                'pt-br': 'Blackjack (21) contra outros jogadores ou contra a mesa. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-PUBLIC-NAME depositada em qualquer outro lugar que não seja a própria wallet',
+                'en-us': 'Blackjack (21) against other players or the table. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-PUBLIC-NAME deposited anywhere other than their own wallet',
             }
         },
         {
@@ -190,8 +190,8 @@ export class LocalizationService
         {
             TermKey: 'home-poker-texas-holdem-against-players',
             TermValueByLanguage: {
-                'pt-br': 'Poker (Texas Hold\'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-01 depositada em qualquer outro lugar que não seja a própria wallet',
-                'en-us': 'Poker (Texas Hold\'em) against other players. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-01 deposited anywhere other than their own wallet',
+                'pt-br': 'Poker (Texas Hold\'em) contra outros jogadores. Os jogadores poderão jogar sem ter que deixar a $BASE-ANGULAR-PROJECT-PUBLIC-NAME depositada em qualquer outro lugar que não seja a própria wallet',
+                'en-us': 'Poker (Texas Hold\'em) against other players. Players will be able to play without having to leave their $BASE-ANGULAR-PROJECT-PUBLIC-NAME deposited anywhere other than their own wallet',
             }
         },
         {
@@ -211,8 +211,8 @@ export class LocalizationService
         {
             TermKey: 'home-game-with-own-token-nfts-staking',
             TermValueByLanguage: {
-                'pt-br': 'Jogo com token próprio, 2 coleções de NFT\'s e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. Primeira rodada de venda do token vai ser feita apenas em $BASE-ANGULAR-PROJECT-01',
-                'en-us': 'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known old game. The first round of the token sale will be made only in $BASE-ANGULAR-PROJECT-01'
+                'pt-br': 'Jogo com token próprio, 2 coleções de NFT\'s e staking (e talvez PVP), baseado em um jogo antigo muito conhecido. Primeira rodada de venda do token vai ser feita apenas em $BASE-ANGULAR-PROJECT-PUBLIC-NAME',
+                'en-us': 'Game with its own token, 2 NFT collections, and staking (and maybe PVP), based on a very well-known old game. The first round of the token sale will be made only in $BASE-ANGULAR-PROJECT-PUBLIC-NAME'
             }
         },
         {
@@ -235,8 +235,8 @@ export class LocalizationService
         {
             TermKey: 'home-pichanha-coin-history',
             TermValueByLanguage: {
-                'pt-br': 'A história da Pichanha Coin ($BASE-ANGULAR-PROJECT-01)',
-                'en-us': 'The history of Pichanha Coin ($BASE-ANGULAR-PROJECT-01)',
+                'pt-br': 'A história da Pichanha Coin ($BASE-ANGULAR-PROJECT-PUBLIC-NAME)',
+                'en-us': 'The history of Pichanha Coin ($BASE-ANGULAR-PROJECT-PUBLIC-NAME)',
             }
         },
         {
@@ -249,8 +249,8 @@ export class LocalizationService
         {
             TermKey: 'home-brazil-2022-election-history',
             TermValueByLanguage: {
-                'pt-br': 'No Brasil, as eleições para presidência de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, "Lula", um dos ex-presidentes, disse que se ele fosse eleito, as pessoas pobres iam poder comer BASE-ANGULAR-PROJECT-01 (um corte nobre de boi)',
-                'en-us': 'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, "Lula", one of the former presidents, said that if he were elected, poor people would be able to eat BASE-ANGULAR-PROJECT-01 (a noble cut of beef)',
+                'pt-br': 'No Brasil, as eleições para presidência de 2022 foram muito marcantes por terem sido extremamente polarizadas. Durante o período de candidatura, "Lula", um dos ex-presidentes, disse que se ele fosse eleito, as pessoas pobres iam poder comer BASE-ANGULAR-PROJECT-PUBLIC-NAME (um corte nobre de boi)',
+                'en-us': 'In Brazil, the 2022 presidential election was very memorable for being extremely polarized. During the candidacy period, "Lula", one of the former presidents, said that if he were elected, poor people would be able to eat BASE-ANGULAR-PROJECT-PUBLIC-NAME (a noble cut of beef)',
             }
         },
         {
@@ -261,10 +261,10 @@ export class LocalizationService
             }
         },
         {
-            TermKey: 'home-BASE-ANGULAR-PROJECT-01-de-lula-meme',
+            TermKey: 'home-BASE-ANGULAR-PROJECT-ID-de-lula-meme',
             TermValueByLanguage: {
-                'pt-br': 'Mesmo hoje, muito tempo depois das eleições, a polarização política continua. E desde então, a "BASE-ANGULAR-PROJECT-01 de Lula" foi e continua sendo um meme muito forte e reconhecido no Brasil, principalmente em discussões de política e usada em discursos de opositores',
-                'en-us': 'Even today, long after the elections, political polarization continues. And since then, "Lula\'s BASE-ANGULAR-PROJECT-01" has been and continues to be a very strong and recognized meme in Brazil, especially in political discussions and used in speeches by opponents',
+                'pt-br': 'Mesmo hoje, muito tempo depois das eleições, a polarização política continua. E desde então, a "BASE-ANGULAR-PROJECT-PUBLIC-NAME de Lula" foi e continua sendo um meme muito forte e reconhecido no Brasil, principalmente em discussões de política e usada em discursos de opositores',
+                'en-us': 'Even today, long after the elections, political polarization continues. And since then, "Lula\'s BASE-ANGULAR-PROJECT-PUBLIC-NAME" has been and continues to be a very strong and recognized meme in Brazil, especially in political discussions and used in speeches by opponents',
             }
         },
         {
@@ -275,17 +275,17 @@ export class LocalizationService
             }
         },
         {
-            TermKey: 'home-BASE-ANGULAR-PROJECT-01-symbol-meaning',
+            TermKey: 'home-BASE-ANGULAR-PROJECT-ID-symbol-meaning',
             TermValueByLanguage: {
-                'pt-br': 'O símbolo da BASE-ANGULAR-PROJECT-01 é $BASE-ANGULAR-PROJECT-01, em português, "BASE-ANGULAR-PROJECT-01" é uma gíria para BASE-ANGULAR-PROJECT-01',
-                'en-us': 'The symbol of BASE-ANGULAR-PROJECT-01 is $BASE-ANGULAR-PROJECT-01, in Portuguese, "BASE-ANGULAR-PROJECT-01" is a slang for BASE-ANGULAR-PROJECT-01',
+                'pt-br': 'O símbolo da BASE-ANGULAR-PROJECT-PUBLIC-NAME é $BASE-ANGULAR-PROJECT-PUBLIC-NAME, em português, "BASE-ANGULAR-PROJECT-PUBLIC-NAME" é uma gíria para BASE-ANGULAR-PROJECT-PUBLIC-NAME',
+                'en-us': 'The symbol of BASE-ANGULAR-PROJECT-PUBLIC-NAME is $BASE-ANGULAR-PROJECT-PUBLIC-NAME, in Portuguese, "BASE-ANGULAR-PROJECT-PUBLIC-NAME" is a slang for BASE-ANGULAR-PROJECT-PUBLIC-NAME',
             }
         },
         {
-            TermKey: 'home-avoid-hands-on-your-BASE-ANGULAR-PROJECT-01s',
+            TermKey: 'home-avoid-hands-on-your-BASE-ANGULAR-PROJECT-IDs',
             TermValueByLanguage: {
-                'pt-br': 'Evite que alguém passe a mão nas suas $BASE-ANGULAR-PROJECT-01s',
-                'en-us': 'Avoid someone getting their hands on your $BASE-ANGULAR-PROJECT-01s'
+                'pt-br': 'Evite que alguém passe a mão nas suas $BASE-ANGULAR-PROJECT-PUBLIC-NAMEs',
+                'en-us': 'Avoid someone getting their hands on your $BASE-ANGULAR-PROJECT-PUBLIC-NAMEs'
             }
         },
         {
@@ -303,10 +303,10 @@ export class LocalizationService
             }
         },
         {
-            TermKey: 'home-BASE-ANGULAR-PROJECT-01',
+            TermKey: 'home-BASE-ANGULAR-PROJECT-ID',
             TermValueByLanguage: {
-                'pt-br': 'BASE-ANGULAR-PROJECT-01 ($BASE-ANGULAR-PROJECT-01):',
-                'en-us': 'BASE-ANGULAR-PROJECT-01 ($BASE-ANGULAR-PROJECT-01):',
+                'pt-br': 'BASE-ANGULAR-PROJECT-PUBLIC-NAME ($BASE-ANGULAR-PROJECT-PUBLIC-NAME):',
+                'en-us': 'BASE-ANGULAR-PROJECT-PUBLIC-NAME ($BASE-ANGULAR-PROJECT-PUBLIC-NAME):',
             }
         },
 
@@ -332,10 +332,10 @@ export class LocalizationService
             }
         },
         {
-            TermKey: 'home-who-conceived-BASE-ANGULAR-PROJECT-01-title',
+            TermKey: 'home-who-conceived-BASE-ANGULAR-PROJECT-ID-title',
             TermValueByLanguage: {
-                'pt-br': 'Quem pensou na $BASE-ANGULAR-PROJECT-01',
-                'en-us': 'Who conceived $BASE-ANGULAR-PROJECT-01',
+                'pt-br': 'Quem pensou na $BASE-ANGULAR-PROJECT-PUBLIC-NAME',
+                'en-us': 'Who conceived $BASE-ANGULAR-PROJECT-PUBLIC-NAME',
             }
         },
         {
