@@ -16,44 +16,44 @@
             ]
         },
         "development": {
-            "HostingName": "NAME-NAME-NAME-01-dev",
-            "CdnS3BucketName": "NAME-NAME-NAME-01-dev",
+            "HostingName": "NAME-NAME-NAME-01-development-01",
+            "CdnS3BucketName": "NAME-NAME-NAME-01-development-01",
             "TextReplacingList": [
                 {
                     "OriginalText": "http://localhost:2828/",
-                    "ReplaceText": "https://NAME-NAME-NAME-01-dev.s3.sa-east-1.amazonaws.com/"
+                    "ReplaceText": "https://NAME-NAME-NAME-01-development-01.s3.sa-east-1.amazonaws.com/"
                 },
                 {
                     "OriginalText": "http://localhost:2829/",
-                    "ReplaceText": "https://NAME-NAME-NAME-01-dev.onrender.com/"
+                    "ReplaceText": "https://NAME-NAME-NAME-01-development-01.onrender.com/"
                 }
             ]
         },
         "beta": {
-            "HostingName": "NAME-NAME-NAME-01-beta",
-            "CdnS3BucketName": "NAME-NAME-NAME-01-beta",
+            "HostingName": "NAME-NAME-NAME-01-beta-01",
+            "CdnS3BucketName": "NAME-NAME-NAME-01-beta-01",
             "TextReplacingList": [
                 {
                     "OriginalText": "http://localhost:2828/",
-                    "ReplaceText": "https://NAME-NAME-NAME-01-beta.s3.sa-east-1.amazonaws.com/"
+                    "ReplaceText": "https://NAME-NAME-NAME-01-beta-01.s3.sa-east-1.amazonaws.com/"
                 },
                 {
                     "OriginalText": "http://localhost:2829/",
-                    "ReplaceText": "https://NAME-NAME-NAME-01-beta.onrender.com/"
+                    "ReplaceText": "https://NAME-NAME-NAME-01-beta-01.onrender.com/"
                 }
             ]
         },
         "production": {
-            "HostingName": "NAME-NAME-NAME-01-prod",
-            "CdnS3BucketName": "NAME-NAME-NAME-01-prod",
+            "HostingName": "NAME-NAME-NAME-01-production-01",
+            "CdnS3BucketName": "NAME-NAME-NAME-01-production-01",
             "TextReplacingList": [
                 {
                     "OriginalText": "http://localhost:2828/",
-                    "ReplaceText": "https://NAME-NAME-NAME-01-prod.s3.sa-east-1.amazonaws.com/"
+                    "ReplaceText": "https://NAME-NAME-NAME-01-production-01.s3.sa-east-1.amazonaws.com/"
                 },
                 {
                     "OriginalText": "http://localhost:2829/",
-                    "ReplaceText": "https://NAME-NAME-NAME-01-prod.onrender.com/"
+                    "ReplaceText": "https://NAME-NAME-NAME-01-production-01.onrender.com/"
                 }
             ]
         }

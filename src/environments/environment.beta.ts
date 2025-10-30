@@ -8,8 +8,8 @@ export const DevelopmentEnvironmentName = 'dev';
 export const LocalEnvironmentName = 'local';
 
 export const environment: EnviromentData = {
-    API_URL: 'https://BASE-ANGULAR-PROJECT-01-beta.onrender.com',
-    CDN_URL: 'https://BASE-ANGULAR-PROJECT-01-beta.s3.sa-east-1.amazonaws.com',
+    API_URL: 'https://BASE-ANGULAR-PROJECT-01-beta-01.onrender.com',
+    CDN_URL: 'https://BASE-ANGULAR-PROJECT-01-beta-01.s3.sa-east-1.amazonaws.com',
     APP_VERSION: "M.M.P",
 
     ENVIRONMENT_NAME: BetaEnvironmentName,
