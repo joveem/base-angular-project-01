@@ -3,6 +3,7 @@ import { FirebaseOptions } from "@angular/fire/app";
 
 
 export const ProductionEnvironmentName = 'prod';
+export const BetaEnvironmentName = 'beta';
 export const DevelopmentEnvironmentName = 'dev';
 export const LocalEnvironmentName = 'local';
 

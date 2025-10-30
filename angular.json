@@ -59,6 +59,28 @@
                                 }
                             ]
                         },
+                        "beta": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "2mb",
+                                    "maximumError": "5mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "outputHashing": "all",
+                            "serviceWorker": "ngsw-config.json",
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.beta.ts"
+                                }
+                            ]
+                        },
                         "development": {
                             "optimization": false,
                             "extractLicenses": false,
@@ -93,6 +115,9 @@
                     "configurations": {
                         "production": {
                             "buildTarget": "base-angular-projects-01:build:production"
+                        },
+                        "beta": {
+                            "buildTarget": "base-angular-projects-01:build:beta"
                         },
                         "development": {
                             "buildTarget": "base-angular-projects-01:build:development"

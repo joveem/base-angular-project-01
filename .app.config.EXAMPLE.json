@@ -1,6 +1,20 @@
 {
     "AppVersion": "0.1.0",
     "AppConfigByEnviroment": {
+        "local": {
+            "HostingName": "NAME-NAME-NAME-01-local",
+            "CdnS3BucketName": "NAME-NAME-NAME-01-local",
+            "TextReplacingList": [
+                {
+                    "OriginalText": "http://localhost:2828/",
+                    "ReplaceText": "http://localhost:2828/"
+                },
+                {
+                    "OriginalText": "http://localhost:2829/",
+                    "ReplaceText": "http://localhost:2829/"
+                }
+            ]
+        },
         "development": {
             "HostingName": "NAME-NAME-NAME-01-dev",
             "CdnS3BucketName": "NAME-NAME-NAME-01-dev",
@@ -12,6 +26,20 @@
                 {
                     "OriginalText": "http://localhost:2829/",
                     "ReplaceText": "https://NAME-NAME-NAME-01-dev.onrender.com/"
+                }
+            ]
+        },
+        "beta": {
+            "HostingName": "NAME-NAME-NAME-01-beta",
+            "CdnS3BucketName": "NAME-NAME-NAME-01-beta",
+            "TextReplacingList": [
+                {
+                    "OriginalText": "http://localhost:2828/",
+                    "ReplaceText": "https://NAME-NAME-NAME-01-beta.s3.sa-east-1.amazonaws.com/"
+                },
+                {
+                    "OriginalText": "http://localhost:2829/",
+                    "ReplaceText": "https://NAME-NAME-NAME-01-beta.onrender.com/"
                 }
             ]
         },
