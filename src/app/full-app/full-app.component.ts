@@ -1,9 +1,10 @@
 import { Component, ViewChild, inject } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
-import {
-    AppVersionPanelComponent,
-    ImageLoadingService,
-} from '@contexts/jovdk-web';
+import
+    {
+        AppVersionPanelComponent,
+        ImageLoadingService,
+    } from '@contexts/jovdk-web';
 import { ThreeJsBaseSceneComponent } from '@contexts/jovdk-web-threejs';
 import { NavBarComponent } from '@contexts/app/features/home/nav-bar/nav-bar.component';
 import { ImgLoadingDirective } from '@contexts/app/features/custom-directives/img-loading.directive';
@@ -23,7 +24,8 @@ import { AppEnvironmentHandler, EnviromentData, environment } from '../../enviro
     templateUrl: './full-app.component.html',
     styleUrl: './full-app.component.css',
 })
-export class FullAppComponent {
+export class FullAppComponent
+{
     _environmentData: EnviromentData = environment;
     private readonly imageLoadingService = inject(ImageLoadingService);
 
@@ -33,9 +35,12 @@ export class FullAppComponent {
 
     @ViewChild('_threeJsBaseScene') _threeJsBaseScene!: ThreeJsBaseSceneComponent;
 
-    constructor() {
-        this.imageLoadingService.imagesLoading$.subscribe((value: number) => {
-            if (value === 0) {
+    constructor()
+    {
+        this.imageLoadingService.imagesLoading$.subscribe((value: number) =>
+        {
+            if (value === 0)
+            {
                 this._isLoadingContent = false;
             }
         });

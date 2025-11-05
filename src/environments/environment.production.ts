@@ -16,7 +16,8 @@ export const environment: EnviromentData = {
     VAPID_PUBLIC_KEY: "*****************************************",
 };
 
-export interface EnviromentData {
+export interface EnviromentData
+{
     API_URL: string,
     CDN_URL: string,
     APP_VERSION: string,
@@ -36,8 +37,10 @@ export const firebaseEnvironment: FirebaseOptions = {
     "measurementId": "INSERT-MEASUMENT-ID"
 };
 
-export class AppEnvironmentHandler {
-    static GetEnviromentCollectionPrefix = () => {
+export class AppEnvironmentHandler
+{
+    static GetEnviromentCollectionPrefix = () =>
+    {
         let value = '';
 
         value += environment.ENVIRONMENT_NAME + '-';
@@ -45,7 +48,8 @@ export class AppEnvironmentHandler {
         return value;
     }
 
-    static IsProd = () => {
+    static IsProd = () =>
+    {
         let value = false;
 
         value = environment.ENVIRONMENT_NAME == ProductionEnvironmentName
@@ -53,7 +57,8 @@ export class AppEnvironmentHandler {
         return value;
     }
 
-    static IsLocal = () => {
+    static IsLocal = () =>
+    {
         let value = false;
 
         value = environment.ENVIRONMENT_NAME == LocalEnvironmentName
@@ -61,12 +66,14 @@ export class AppEnvironmentHandler {
         return value;
     }
 
-    static DoIfProduction = (callback: () => void) => {
+    static DoIfProduction = (callback: () => void) =>
+    {
         if (AppEnvironmentHandler.IsProd())
             callback();
     }
 
-    static DoIfLocal = (callback: () => void) => {
+    static DoIfLocal = (callback: () => void) =>
+    {
         if (AppEnvironmentHandler.IsLocal())
             callback();
     }

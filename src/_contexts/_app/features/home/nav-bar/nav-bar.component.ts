@@ -15,7 +15,8 @@ import { initTooltips } from 'flowbite';
     templateUrl: './nav-bar.component.html',
     styleUrl: './nav-bar.component.css',
 })
-export class NavBarComponent implements AfterViewInit {
+export class NavBarComponent implements AfterViewInit
+{
     private readonly localizationService: LocalizationService = inject(LocalizationService);
 
     readonly languageOptions: ReadonlyArray<LocalizationLanguageOption> =
@@ -23,26 +24,32 @@ export class NavBarComponent implements AfterViewInit {
 
     _isSelectingLanguage = false;
 
-    get currentLanguage(): LocalizationLanguageOption {
+    get currentLanguage(): LocalizationLanguageOption
+    {
         return this.localizationService.currentLanguage;
     }
 
-    translate(termKey: string): string {
+    translate(termKey: string): string
+    {
         return this.localizationService.translate(termKey);
     }
 
-    OpenLanguageSelectionButton = () => {
-        if (!this._isSelectingLanguage) {
+    OpenLanguageSelectionButton = () =>
+    {
+        if (!this._isSelectingLanguage)
+        {
             this._isSelectingLanguage = true;
         }
     };
 
-    LanguageOptionButton = (languageId: string) => {
+    LanguageOptionButton = (languageId: string) =>
+    {
         this._isSelectingLanguage = false;
         this.localizationService.setLanguage(languageId);
     };
 
-    ngAfterViewInit(): void {
+    ngAfterViewInit(): void
+    {
         initTooltips();
     }
 }

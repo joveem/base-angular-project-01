@@ -3,10 +3,11 @@ import { provideRouter } from '@angular/router';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
-import {
-    provideAppEnvironmentInfo,
-    provideLocalizationConfig,
-} from '@contexts/jovdk-web';
+import
+    {
+        provideAppEnvironmentInfo,
+        provideLocalizationConfig,
+    } from '@contexts/jovdk-web';
 import { provideThreeEnvironmentConfig } from '@contexts/jovdk-web-threejs';
 import { DEFAULT_LOCALIZATION_CONFIG } from '@contexts/jovdk-web';
 import { AppEnvironmentHandler, environment } from '../environments/environment';
