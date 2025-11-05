@@ -1,50 +1,50 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "outDir": "./dist/out-tsc",
-    "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "sourceMap": true,
-    "declaration": false,
-    "experimentalDecorators": true,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
-    "useDefineForClassFields": false,
-    "baseUrl": "./",
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
-    "paths": {
-      "@contexts/jovdk-web": [
-        "src/_contexts/_jovdk-web/index.ts"
-      ],
-      "@contexts/jovdk-web/*": [
-        "src/_contexts/_jovdk-web/*"
-      ],
-      "@contexts/jovdk-web-threejs": [
-        "src/_contexts/_jovdk-web-threejs/index.ts"
-      ],
-      "@contexts/jovdk-web-threejs/*": [
-        "src/_contexts/_jovdk-web-threejs/*"
-      ],
-      "@contexts/app/*": [
-        "src/_contexts/_app/*"
-      ]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "outDir": "./dist/out-tsc",
+        "strict": true,
+        "noImplicitOverride": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "sourceMap": true,
+        "declaration": false,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "ES2022",
+        "module": "ES2022",
+        "useDefineForClassFields": false,
+        "baseUrl": "./",
+        "lib": [
+            "ES2022",
+            "dom"
+        ],
+        "paths": {
+            "@contexts/jovdk-web": [
+                "src/_contexts/_jovdk-web/index.ts"
+            ],
+            "@contexts/jovdk-web/*": [
+                "src/_contexts/_jovdk-web/*"
+            ],
+            "@contexts/jovdk-web-threejs": [
+                "src/_contexts/_jovdk-web-threejs/index.ts"
+            ],
+            "@contexts/jovdk-web-threejs/*": [
+                "src/_contexts/_jovdk-web-threejs/*"
+            ],
+            "@contexts/app/*": [
+                "src/_contexts/_app/*"
+            ]
+        }
+    },
+    "angularCompilerOptions": {
+        "enableI18nLegacyMessageIdFormat": false,
+        "strictInjectionParameters": true,
+        "strictInputAccessModifiers": true,
+        "strictTemplates": true
     }
-  },
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  }
 }
