@@ -8,8 +8,8 @@ export const DevelopmentEnvironmentName = 'dev';
 export const LocalEnvironmentName = 'local';
 
 export const environment: EnviromentData = {
-    API_URL: 'https://BASE-ANGULAR-PROJECT-01-development-01.onrender.com',
-    CDN_URL: 'https://BASE-ANGULAR-PROJECT-01-development-01.s3.sa-east-1.amazonaws.com',
+    API_URL: 'https://jovdev-ws-02-development-01.up.railway.app',
+    CDN_URL: 'https://jovdev-ws-02-development-01.s3.sa-east-1.amazonaws.com',
     APP_VERSION: "M.M.P",
 
     ENVIRONMENT_NAME: DevelopmentEnvironmentName,
@@ -28,11 +28,11 @@ export interface EnviromentData
 }
 
 export const firebaseEnvironment: FirebaseOptions = {
-    "projectId": "INSERT-PROJECT-ID",
+    "projectId": "jovdev-ws-02",
     "appId": "INSERT-APP-ID",
-    "storageBucket": "INSERT-STORAGE-BUCKET",
+    "storageBucket": "jovdev-ws-02.appspot.com",
     "apiKey": "INSERT-API-KEY",
-    "authDomain": "INSERT-AUTH-DOMAIN",
+    "authDomain": "jovdev-ws-02.firebaseapp.com",
     "messagingSenderId": "INSERT-MESSAGING-ID",
     "measurementId": "INSERT-MEASUMENT-ID"
 };
