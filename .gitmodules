@@ -1,6 +1,6 @@
 [submodule "src/_contexts/_jovdk-web"]
 	path = src/_contexts/_jovdk-web
-	url = file:///d:/_repo-02/jd/_context-repos/_jovdk-web
+	url = git@github.com:joveem/JovDK-Web.git
 [submodule "src/_contexts/_jovdk-web-threejs"]
 	path = src/_contexts/_jovdk-web-threejs
-	url = file:///d:/_repo-02/jd/_context-repos/_jovdk-web-threejs
+	url = git@github.com:joveem/JovDK-Web-ThreeJs.git
